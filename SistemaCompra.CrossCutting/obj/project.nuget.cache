@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "KbXTb5/0b2vWlPeAyAV1F9EIBu0Ik63VS82Vc3w6vbLT5d3ZDlaDmgNPOCIFd/S2F5ekCl399rFcGlLomt0OEg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\thimm\\Downloads\\SistemaCompraApi\\SistemaCompra.CrossCutting\\SistemaCompra.CrossCutting.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\thimm\\.nuget\\packages\\mediatr\\8.0.0\\mediatr.8.0.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
