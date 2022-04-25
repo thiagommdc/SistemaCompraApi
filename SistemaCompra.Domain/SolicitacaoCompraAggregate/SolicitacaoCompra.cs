@@ -16,16 +16,18 @@ namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
         public DateTime Data { get; private set; }
         public Money TotalGeral { get; private set; }
         public Situacao Situacao { get; private set; }
+        public CondicaoPagamento CondicaoPagamento { get; private set; }
 
         private SolicitacaoCompra() { }
 
-        public SolicitacaoCompra(string usuarioSolicitante, string nomeFornecedor)
+        public SolicitacaoCompra(string usuarioSolicitante, string nomeFornecedor, decimal totalGeral, int condicaoPagamento)
         {
             Id = Guid.NewGuid();
             UsuarioSolicitante = new UsuarioSolicitante(usuarioSolicitante);
             NomeFornecedor = new NomeFornecedor(nomeFornecedor);
             Data = DateTime.Now;
             Situacao = Situacao.Solicitado;
+            CondicaoPagamento = new CondicaoPagamento(condicaoPagamento, totalGeral);
         }
 
         public void AdicionarItem(Produto produto, int qtde)
@@ -33,9 +35,10 @@ namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
             Itens.Add(new Item(produto, qtde));
         }
 
-        public void RegistrarCompra(IEnumerable<Item> itens)
+        public void RegistrarCompra(List<Item> itens)
         {
-           
+            if (itens.Count() == 0) throw new BusinessRuleException("Na solicitação de compra deve haber ao menos um item.");
+            AddEvent(new CompraRegistradaEvent(Id, itens, TotalGeral.Value));
         }
     }
 }
