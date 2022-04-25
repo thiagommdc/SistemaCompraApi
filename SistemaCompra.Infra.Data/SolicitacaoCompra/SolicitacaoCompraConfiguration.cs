@@ -13,6 +13,8 @@ namespace SistemaCompra.Infra.Data.SolicitacaoCompra
         {
             builder.ToTable("SolicitacaoCompra");
             builder.OwnsOne(c => c.TotalGeral, b => b.Property("Value").HasColumnName("TotalGeral"));
+            builder.OwnsOne(c => c.CondicaoPagamento, b => b.Property("Value").HasColumnName("CondicaoPagamento"));
+            builder.HasKey(e => e.Id);
         }
     }
 }

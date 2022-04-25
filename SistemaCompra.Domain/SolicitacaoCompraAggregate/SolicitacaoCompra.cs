@@ -10,6 +10,7 @@ namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
 {
     public class SolicitacaoCompra : Entity
     {
+        public Guid Id { get; set; }
         public UsuarioSolicitante UsuarioSolicitante { get; private set; }
         public NomeFornecedor NomeFornecedor { get; private set; }
         public IList<Item> Itens { get; private set; }
@@ -20,7 +21,7 @@ namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
 
         private SolicitacaoCompra() { }
 
-        public SolicitacaoCompra(string usuarioSolicitante, string nomeFornecedor, decimal totalGeral, int condicaoPagamento)
+        public SolicitacaoCompra(string usuarioSolicitante, string nomeFornecedor, decimal totalGeral = 0, int condicaoPagamento = 0)
         {
             Id = Guid.NewGuid();
             UsuarioSolicitante = new UsuarioSolicitante(usuarioSolicitante);
